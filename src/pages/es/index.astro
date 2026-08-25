@@ -32,15 +32,71 @@ import Layout from '../../layouts/Layout.astro';
     </section>
 
     <!-- MAIN CONTENT BELOW HERO -->
-    <section class="relative z-40 bg-white min-h-screen py-32 border-t border-[#8B6F47]/20 shadow-2xl">
-      <div class="max-w-[68ch] mx-auto px-6">
-        <div class="text-center mb-20">
-          <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Comunidad Campesina</span>
-          <h2 class="text-4xl md:text-6xl font-display text-[#1B4F8C] mb-8 mt-4">Patrimonio Vivo del Valle Sagrado</h2>
-          <p class="text-xl md:text-2xl text-[#2E2018] leading-relaxed">Racchi Ayllu es una comunidad campesina del distrito de Huayllabamba, provincia de Urubamba. En su jurisdicción, la cultura viva persiste a través del tiempo.</p>
-        </div>
+    <section class="relative z-40 bg-white pt-24 pb-16 border-t border-[#8B6F47]/20 shadow-2xl">
+      <div class="max-w-[68ch] mx-auto px-6 text-center">
+        <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Comunidad Campesina</span>
+        <h2 class="text-4xl md:text-6xl font-display text-[#1B4F8C] mb-8 mt-4">Patrimonio Vivo del Valle Sagrado</h2>
+        <p class="text-xl md:text-2xl text-[#2E2018] leading-relaxed">Racchi Ayllu es una comunidad campesina del distrito de Huayllabamba, provincia de Urubamba. En su jurisdicción, la cultura viva persiste a través del tiempo.</p>
+      </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+    <!-- QUICK FACTS SECTION -->
+    <section class="relative z-40 bg-white py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+            <span class="text-4xl block mb-4">⛰️</span>
+            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Altitud</h4>
+            <p class="text-[#2E2018] mono-font font-bold">~3,652 m.s.n.m.</p>
+          </div>
+          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+            <span class="text-4xl block mb-4">👥</span>
+            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Población</h4>
+            <p class="text-[#2E2018] mono-font font-bold">[Pendiente]</p>
+          </div>
+          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+            <span class="text-4xl block mb-4">📅</span>
+            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Reconocimiento</h4>
+            <p class="text-[#2E2018] mono-font font-bold">[Pendiente]</p>
+          </div>
+          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+            <span class="text-4xl block mb-4">📍</span>
+            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Ubicación</h4>
+            <p class="text-[#2E2018] mono-font font-bold">Huayllabamba</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE LA COMUNIDAD -->
+    <section class="relative z-40 bg-white py-24 border-t border-[#8B6F47]/10">
+      <div class="max-w-[68ch] mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Nuestra Historia</span>
+          <h2 class="text-4xl md:text-5xl font-display text-[#1B4F8C] mb-8 mt-4">Corazón de los Andes</h2>
+        </div>
+        <div class="text-[#2E2018] text-lg md:text-xl leading-relaxed space-y-6">
+          <p>
+            Racchi Ayllu es mucho más que un territorio; es una herencia cultural viva. Ubicada en la parte alta del Valle Sagrado, nuestra comunidad ha mantenido sus tradiciones desde tiempos inmemoriales, sosteniendo una economía basada en la agricultura y la ganadería.
+          </p>
+          <p>
+            Hoy en día, somos un punto emergente e importante para el <strong>turismo vivencial</strong>. Aquí, compartimos nuestra textilería andina ancestral y el cuidado de nuestras alpacas y llamas, abriendo nuestras puertas para que el mundo experimente el verdadero respeto por la Pachamama.
+          </p>
+          <div class="bg-[#E8DCC4]/30 p-6 rounded-lg border-l-4 border-[#E8792B] mt-8 text-base">
+            <strong>Aclaración Importante:</strong> Suele confundirse nuestra comunidad con el sitio arqueológico de Raqchi (Templo de Wiracocha) ubicado en Canchis. Racchi Ayllu es un asentamiento completamente distinto en Urubamba.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FESTIVIDADES Y CULTURA -->
+    <section class="relative z-40 bg-white py-24 border-t border-[#8B6F47]/10">
+      <div class="max-w-[68ch] mx-auto px-6 mb-16 text-center">
+        <span class="mono-font text-sm uppercase tracking-widest text-[#E8792B] font-bold">Expresiones Culturales</span>
+        <h2 class="text-4xl md:text-5xl font-display text-[#1B4F8C] mb-8 mt-4">Nuestras Festividades</h2>
+      </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <a href="/es/festividades/virgen-asunta" class="block p-10 border border-[#1B4F8C]/20 bg-white/40 hover:bg-[#1B4F8C] hover:text-[#E8DCC4] transition-all rounded-lg group shadow-sm hover:shadow-xl hover:-translate-y-1">
             <h3 class="text-3xl font-bold mb-4 font-display">La Virgen Asunta</h3>
             <p class="opacity-80 group-hover:opacity-100 transition-opacity text-lg">Una festividad única del 21 al 25 de agosto, a diferencia del resto del Valle Sagrado.</p>
@@ -56,6 +112,28 @@ import Layout from '../../layouts/Layout.astro';
             </div>
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="relative z-40 bg-white py-24 border-t border-[#8B6F47]/10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Encuéntranos</span>
+          <h2 class="text-4xl md:text-5xl font-display text-[#1B4F8C] mt-4">Nuestra Ubicación</h2>
+        </div>
+        <div class="w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-[#1B4F8C]/20 bg-[#E8DCC4] flex items-center justify-center">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31065.74797089758!2d-72.0838321!3d-13.3366034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd54f2c8d2345%3A0xc02e4d0d4cd5bc1!2sHuayllabamba!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p class="text-center mt-6 text-[#8B6F47] mono-font text-sm font-bold">[El mapa apunta a Huayllabamba. Por favor, enviar enlace exacto de Racchi Ayllu]</p>
       </div>
     </section>
   </div>
