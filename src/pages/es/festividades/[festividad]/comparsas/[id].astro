@@ -1,0 +1,111 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../../../layouts/Layout.astro';
+import ProcedenciaBloque from '../../../../../components/ProcedenciaBloque.astro';
+
+export async function getStaticPaths() {
+  const festividades = await getCollection('festividades');
+  const comparsas = await getCollection('comparsas');
+
+  return festividades.flatMap(festividad => {
+    return festividad.data.comparsas.map((cId: string) => {
+      const comparsa = comparsas.find(c => c.id === cId);
+      if (!comparsa) return null;
+      return {
+        params: { festividad: festividad.id, id: comparsa.id },
+        props: { festividad, comparsa },
+      };
+    }).filter(Boolean);
+  });
+}
+
+const { festividad, comparsa } = Astro.props;
+const { Content } = await render(comparsa);
+const data = comparsa.data;
+---
+<Layout title={`${data.nombre} | ${festividad.data.nombre} | Racchi Ayllu`} description={data.resumen} theme="chunchu">
+  <div class="max-w-[68ch] mx-auto px-6 pt-32 pb-24">
+    <div class="mb-12">
+      <div class="flex items-center gap-4 text-neutral-400 font-bold mono-font text-sm uppercase tracking-wider mb-6 flex-wrap">
+        <a href="/es/" class="hover:text-white transition-colors underline">Inicio</a>
+        <span>/</span>
+        <a href={`/es/festividades/${festividad.id}`} class="hover:text-white transition-colors underline">{festividad.data.nombre}</a>
+        <span>/</span>
+        <a href={`/es/festividades/${festividad.id}/comparsas`} class="hover:text-white transition-colors underline">Comparsas</a>
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl font-bold text-white font-display mb-4 uppercase tracking-wider">{data.nombre}</h1>
+      <p class="text-xl md:text-2xl mt-4 text-[#C91C1C] leading-relaxed font-bold font-display">{data.resumen}</p>
+    </div>
+  
+    <div class="text-neutral-300 mb-12 text-lg md:text-xl leading-relaxed bg-[#111111]/80 backdrop-blur-sm p-8 md:p-10 border border-[#C91C1C]/20 rounded-xl shadow-sm">
+      <Content />
+    </div>
+
+    {data.historia && data.historia.length > 0 && (
+      <section class="mt-16">
+        <h2 class="text-3xl font-bold text-white mb-8 font-display border-b-2 border-[#C91C1C]/30 pb-2">Historia y Origen</h2>
+        <div class="space-y-6">
+          {data.historia.map((h: any) => (
+            <ProcedenciaBloque tipo={h.procedencia}>
+              <p class="text-lg text-neutral-300">{h.texto}</p>
+              {h.fuente && <p class="text-sm mt-3 font-bold text-[#C91C1C] uppercase tracking-widest mono-font">Fuente: {h.fuente}</p>}
+            </ProcedenciaBloque>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {data.personajes && data.personajes.length > 0 && (
+      <section class="mt-20">
+        <h2 class="text-3xl font-bold text-white mb-8 font-display border-b-2 border-[#C91C1C]/30 pb-2">Estructura y Personajes</h2>
+        <div class="overflow-x-auto shadow-xl rounded-xl border border-[#C91C1C]/20 bg-[#111111]">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b-2 border-[#C91C1C]/50 bg-[#C91C1C]/10 text-white">
+                <th class="p-5 font-bold text-lg font-display tracking-widest uppercase text-sm">Personaje</th>
+                <th class="p-5 font-bold text-lg font-display tracking-widest uppercase text-sm">Cantidad</th>
+                <th class="p-5 font-bold text-lg font-display tracking-widest uppercase text-sm">Función</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.personajes.map((p: any) => (
+                <tr class="border-b border-neutral-800 hover:bg-[#C91C1C]/5 transition-colors text-neutral-300">
+                  <td class="p-5 font-bold align-top text-white text-lg">{p.nombre}</td>
+                  <td class="p-5 mono-font align-top text-[#C91C1C]">{p.cantidad}</td>
+                  <td class="p-5 align-top">
+                    <ProcedenciaBloque tipo={p.procedencia}>
+                      {p.funcion}
+                    </ProcedenciaBloque>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    {data.vestimenta && data.vestimenta.length > 0 && (
+      <section class="mt-20">
+        <h2 class="text-3xl font-bold text-white mb-8 font-display border-b-2 border-[#C91C1C]/30 pb-2">Detalle de Vestimenta</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {data.vestimenta.map((v: any) => (
+            <div class="bg-[#111111]/80 border border-[#C91C1C]/20 hover:border-[#C91C1C]/60 p-8 rounded-xl shadow-lg transition-all relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-[#C91C1C] rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity z-0"></div>
+              <h3 class="text-2xl font-bold mb-4 text-white font-display relative z-10 flex flex-col">
+                {v.pieza} {v.quechua && <span class="quechua font-normal text-[#C91C1C] mt-1 text-lg">({v.quechua})</span>}
+              </h3>
+              <div class="relative z-10">
+                <ProcedenciaBloque tipo={v.procedencia}>
+                  <p class="text-lg text-neutral-300">{v.descripcion}</p>
+                  {v.material && <p class="mt-6 text-xs mono-font bg-[#C91C1C]/10 border border-[#C91C1C]/30 text-white inline-block px-3 py-1.5 rounded-md uppercase font-bold tracking-wider">Materia: {v.material}</p>}
+                </ProcedenciaBloque>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>

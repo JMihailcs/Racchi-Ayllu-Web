@@ -1,0 +1,109 @@
+---
+interface Props {
+  theme?: 'default' | 'chunchu';
+}
+const { theme = 'default' } = Astro.props;
+
+const links = [
+  { name: 'Inicio', url: '/es/' },
+  { name: 'Festividades', url: '/es/festividades/virgen-asunta' },
+  { name: 'Empresas', url: '#' },
+  { name: 'Mirador', url: '#' },
+  { name: 'Machuqolqa', url: '#' },
+  { name: 'Contacto', url: '/es/contacto' }
+];
+
+let navBgClass = "bg-white/90 backdrop-blur-md border-b border-[#8B6F47]/20 shadow-sm";
+let textColor = "text-[#2E2018]";
+let hoverColor = "hover:text-[#D4547E]";
+let logoColor = "text-[#1B4F8C]";
+let menuBg = "bg-white";
+
+if (theme === 'chunchu') {
+  navBgClass = "bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#C91C1C]/20 shadow-sm";
+  textColor = "text-neutral-200";
+  hoverColor = "hover:text-[#C91C1C]";
+  logoColor = "text-white";
+  menuBg = "bg-[#0A0A0A]";
+}
+---
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="global-nav">
+  <div class={`absolute inset-0 ${navBgClass} transition-opacity duration-300`} id="nav-bg"></div>
+  <div class="relative max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/es/" class={`text-2xl font-bold font-display ${logoColor} tracking-wide relative z-10`}>Racchi Ayllu</a>
+    
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center gap-8 relative z-10">
+      {links.map(link => (
+        <a 
+          href={link.url} 
+          class={`${textColor} font-bold text-sm uppercase tracking-widest ${hoverColor} transition-colors`}
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button id="mobile-menu-btn" class={`lg:hidden relative z-10 ${textColor} p-2 ${hoverColor} transition-colors`}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class={`fixed inset-0 ${menuBg} z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-8 lg:hidden`}>
+  <button id="mobile-menu-close" class={`absolute top-6 right-6 p-4 ${textColor} ${hoverColor} transition-colors`}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  
+  {links.map(link => (
+    <a 
+      href={link.url} 
+      class={`mobile-link text-3xl font-bold font-display ${textColor} ${hoverColor} transition-colors`}
+    >
+      {link.name}
+    </a>
+  ))}
+</div>
+
+<script>
+  // Simple fade background on scroll
+  const navBg = document.getElementById('nav-bg');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navBg?.classList.add('opacity-100');
+      navBg?.classList.remove('opacity-0');
+    } else {
+      navBg?.classList.add('opacity-0');
+      navBg?.classList.remove('opacity-100');
+    }
+  });
+
+  // Mobile Menu Logic
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function openMenu() {
+    mobileMenu?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+  }
+
+  mobileBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

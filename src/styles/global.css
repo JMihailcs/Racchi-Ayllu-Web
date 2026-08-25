@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-suri: #E8DCC4;
+  --color-chonta: #2E2018;
+  --color-cinta-azul: #1B4F8C;
+  --color-cinta-rosa: #D4547E;
+  --color-naranja: #E8792B;
+  --color-tierra: #8B6F47;
+  
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Public Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  background-color: var(--color-suri);
+  color: var(--color-chonta);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, .display-font {
+  font-family: var(--font-display);
+}
+
+.mono-font {
+  font-family: var(--font-mono);
+}
+
+.quechua {
+  font-family: var(--font-display);
+  font-style: italic;
+}

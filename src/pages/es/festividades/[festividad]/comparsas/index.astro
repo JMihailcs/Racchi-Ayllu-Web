@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const festividades = await getCollection('festividades');
+  return festividades.map(festividad => ({
+    params: { festividad: festividad.id },
+    props: { festividad },
+  }));
+}
+
+const { festividad } = Astro.props;
+const data = festividad.data;
+
+// Fetch all comparsas that are listed in this festividad
+const allComparsas = await getCollection('comparsas');
+const comparsasDeFiesta = allComparsas.filter(c => data.comparsas.includes(c.id));
+---
+<Layout title={`Comparsas de ${data.nombre} | Racchi Ayllu`} description={`Lista de comparsas que participan en ${data.nombre}`}>
+  <div class="max-w-7xl mx-auto px-6 pt-32 pb-24">
+    <div class="mb-12">
+      <a href={`/es/festividades/${festividad.id}`} class="text-[#8B6F47] hover:text-[#1B4F8C] font-bold underline mb-4 inline-block mono-font text-sm uppercase tracking-wider">← Volver a la Festividad</a>
+      <h1 class="text-4xl md:text-6xl font-bold text-[#1B4F8C] font-display mb-4">Comparsas Participantes</h1>
+      <p class="text-xl text-[#2E2018] leading-relaxed">Las agrupaciones que danzan en honor a {data.nombre}.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {data.comparsas.map((cId: string) => {
+        const comparsa = comparsasDeFiesta.find(c => c.id === cId);
+        
+        if (!comparsa) {
+          // Placeholder para comparsas aún no documentadas
+          return (
+            <div class="p-8 border-2 border-[#8B6F47] border-dashed rounded-lg bg-white opacity-80">
+              <h3 class="text-2xl font-bold font-display text-[#8B6F47] capitalize mb-2">{cId.replace(/-/g, ' ')}</h3>
+              <p class="text-sm font-bold mono-font uppercase tracking-widest text-[#2E2018]">Pendiente de documentar</p>
+            </div>
+          );
+        }
+
+        return (
+          <a href={`/es/festividades/${festividad.id}/comparsas/${comparsa.id}`} class="block p-8 border border-[#E8792B]/30 bg-white hover:bg-[#E8792B] hover:text-white transition-all rounded-lg group shadow-sm hover:shadow-xl hover:-translate-y-1">
+            <h3 class="text-2xl font-bold mb-3 font-display">{comparsa.data.nombre}</h3>
+            <p class="opacity-80 group-hover:opacity-100 transition-opacity line-clamp-3">{comparsa.data.resumen}</p>
+            <div class="mt-6 font-bold mono-font text-sm uppercase flex items-center gap-2 group-hover:text-[#2E2018]">
+              Leer Ficha <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</Layout>

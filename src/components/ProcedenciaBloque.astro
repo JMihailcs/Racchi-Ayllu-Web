@@ -1,0 +1,21 @@
+---
+interface Props {
+  tipo: 'observado' | 'testimonio' | 'por-confirmar';
+}
+const { tipo } = Astro.props;
+
+let borderClass = '';
+if (tipo === 'observado') {
+  // Azul (observado)
+  borderClass = 'border-l-[3px] border-l-[#1B4F8C] border-solid';
+} else if (tipo === 'testimonio') {
+  // Rosa (testimonio)
+  borderClass = 'border-l-[3px] border-l-[#D4547E] border-solid';
+} else if (tipo === 'por-confirmar') {
+  // Tierra punteado (por confirmar)
+  borderClass = 'border-l-[3px] border-l-[#8B6F47] border-dashed';
+}
+---
+<div class={`pl-4 py-1 my-6 ${borderClass}`}>
+  <slot />
+</div>
