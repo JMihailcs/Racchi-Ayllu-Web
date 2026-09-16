@@ -1,0 +1,18 @@
+---
+interface Props {
+  href?: string;
+}
+const { href } = Astro.props;
+const cls = 'block bg-white border border-tierra/20 rounded-2xl p-8 shadow-sm';
+---
+{
+  href ? (
+    <a href={href} class:list={[cls, 'transition-transform hover:-translate-y-1']}>
+      <slot />
+    </a>
+  ) : (
+    <div class={cls}>
+      <slot />
+    </div>
+  )
+}

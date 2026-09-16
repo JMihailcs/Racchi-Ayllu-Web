@@ -1,40 +1,44 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ProcedenciaLeyenda from '../../components/ProcedenciaLeyenda.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Button from '../../components/Button.astro';
 ---
-<Layout title="Cómo se hizo esto | Racchi Ayllu" description="Metodología y fuentes del sitio web de Racchi Ayllu.">
-  <div class="max-w-[68ch] mx-auto px-6 pt-32 pb-24">
-    <div class="mb-8">
-      <a href="/es/" class="text-[#8B6F47] hover:text-[#1B4F8C] font-bold underline mb-4 inline-block mono-font text-sm">← Volver al inicio</a>
-      <h1 class="text-4xl font-bold text-[#2E2018]">Cómo se hizo esto</h1>
+<Layout title="Cómo se hizo esto | Racchi Ayllu — Huayllabamba — Urubamba — Cusco" description="Metodología y fuentes del sitio web de Racchi Ayllu.">
+  <PageHero
+    eyebrow="metodología"
+    title="Cómo se hizo esto"
+    description="El autor de este sitio es un danzante de la comparsa Qapaq Chunchu (2024–2026). El material inicial proviene de observación directa y testimonio, no de entrevistas formales."
+  />
+
+  <Section>
+    <a href="/es/" class="font-mono text-[13px] text-chonta/60 hover:text-cinta-azul mb-10 inline-block">← volver al inicio</a>
+    <p class="text-lg md:text-xl leading-relaxed mb-10">La trazabilidad de cada dato es importante. Por eso usamos un sistema de colores para indicar de dónde viene cada afirmación:</p>
+
+    <ProcedenciaLeyenda />
+
+    <div class="mt-16">
+      <Eyebrow>lo que falta</Eyebrow>
+      <h2 class="text-3xl md:text-4xl text-cinta-azul mb-8">Preguntas abiertas</h2>
+      <ul class="list-disc pl-6 space-y-3 text-lg text-chonta/90">
+        <li>Por qué la fiesta de la Virgen Asunta se celebra del 21 al 25 y no la semana del 15.</li>
+        <li>Qué era el Iriji Chunchu y desde cuándo existía exactamente.</li>
+        <li>Los caporales anteriores de la comparsa, en orden.</li>
+        <li>El significado exacto de cada pieza de la vestimenta.</li>
+        <li>Los nombres propios de las mudanzas (pasos) y su orden musical.</li>
+      </ul>
     </div>
 
-    <main class="space-y-6 text-lg leading-relaxed text-[#2E2018]">
-      <p>El autor de este sitio es un danzante de la comparsa Qapaq Chunchu (2024–2026). El material inicial proviene de observación directa y testimonio, no de entrevistas formales.</p>
-      <p>La trazabilidad de cada dato es importante. Por eso usamos un sistema de colores para indicar de dónde viene cada afirmación:</p>
+    <div class="mt-16">
+      <h2 class="text-3xl md:text-4xl text-cinta-azul mb-6">Lo que falta documentar</h2>
+      <p class="text-lg text-chonta/90 leading-relaxed">Aún quedan cinco comparsas pendientes de documentación detallada: Kukasaru, Qhapaq Qolla, Tinkus, Saqsampillos y Alvaso.</p>
+    </div>
 
-      <ProcedenciaLeyenda />
-
-      <div class="mt-12 p-6 bg-[#E8DCC4]/30 rounded-md border border-[#8B6F47]/20">
-        <h2 class="text-2xl font-bold mb-4 text-[#D4547E]">Preguntas Abiertas</h2>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Por qué la fiesta de la Virgen Asunta se celebra del 21 al 25 y no la semana del 15.</li>
-          <li>Qué era el Iriji Chunchu y desde cuándo existía exactamente.</li>
-          <li>Los caporales anteriores de la comparsa, en orden.</li>
-          <li>El significado exacto de cada pieza de la vestimenta.</li>
-          <li>Los nombres propios de las mudanzas (pasos) y su orden musical.</li>
-        </ul>
-      </div>
-
-      <div class="mt-12">
-        <h2 class="text-2xl font-bold mb-4">Lo que falta documentar</h2>
-        <p>Aún quedan cinco comparsas pendientes de documentación detallada: Kukasaru, Qhapaq Qolla, Tinkus, Saqsampillos, y Alvaso.</p>
-        
-        <p class="mt-8 p-6 bg-[#1B4F8C] text-[#E8DCC4] rounded-md shadow-md text-center">
-          ¿Eres comunero y quieres aportar o corregir algo?<br/>
-          <a href="mailto:contacto@racchiayllu.pe" class="font-bold underline mt-2 inline-block">Escríbenos para colaborar</a>
-        </p>
-      </div>
-    </main>
-  </div>
+    <div class="mt-16 text-center bg-suri/40 rounded-2xl p-10 md:p-12">
+      <p class="text-xl mb-8">¿Eres comunero y quieres aportar o corregir algo?</p>
+      <Button href="mailto:contacto@racchiayllu.pe">Escríbenos para colaborar</Button>
+    </div>
+  </Section>
 </Layout>

@@ -1,66 +1,68 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
 ---
-<Layout title="Contacto | Racchi Ayllu" description="Ponte en contacto para apoyar el proyecto documental de Racchi Ayllu.">
-  <div class="max-w-[68ch] mx-auto px-6 pt-32 pb-24">
-    <div class="mb-12">
-      <a href="/es/" class="text-[#8B6F47] hover:text-[#1B4F8C] font-bold underline mb-4 inline-block mono-font text-sm uppercase tracking-wider">← Volver al inicio</a>
-      <h1 class="text-5xl md:text-6xl font-bold text-[#1B4F8C] font-display mb-6">Contacto y Aportes</h1>
-      <p class="text-xl text-[#2E2018] leading-relaxed">
-        Este es un proyecto documental vivo de la comunidad campesina Racchi Ayllu. Tu apoyo y tus conocimientos son fundamentales para seguir registrando nuestra historia.
-      </p>
-    </div>
+<Layout title="Contacto | Racchi Ayllu — Huayllabamba — Urubamba — Cusco" description="Ponte en contacto para apoyar el proyecto documental de Racchi Ayllu.">
+  <PageHero
+    eyebrow="contacto"
+    title="Contacto y aportes"
+    description="Este es un proyecto documental vivo de la comunidad campesina Racchi Ayllu. Tu apoyo y tus conocimientos son fundamentales para seguir registrando nuestra historia."
+  />
 
-    <div class="bg-white/60 border border-[#8B6F47]/20 rounded-xl p-8 md:p-12 shadow-lg mb-16">
-      <h2 class="text-2xl font-bold text-[#D4547E] font-display mb-6">¿Quieres aportar al registro?</h2>
-      <p class="text-lg mb-8 leading-relaxed text-[#2E2018]">
+  <Section>
+    <a href="/es/" class="font-mono text-[13px] text-chonta/60 hover:text-cinta-azul mb-10 inline-block">← volver al inicio</a>
+
+    <Card>
+      <h2 class="text-2xl text-chonta mb-6">¿Quieres aportar al registro?</h2>
+      <p class="text-lg mb-8 leading-relaxed text-chonta/90">
         Si eres de la comunidad, participaste en festividades pasadas, o simplemente tienes información histórica, fotografías o documentos, nos encantaría escucharte.
       </p>
 
       <div class="space-y-6">
-        <div class="flex items-center gap-4 bg-[#E8DCC4]/50 border border-[#8B6F47]/10 p-4 rounded-lg">
-          <div class="bg-[#1B4F8C] text-white p-3 rounded-full">
+        <div class="flex items-center gap-4 border border-tierra/20 p-4 rounded-2xl">
+          <div class="bg-cinta-azul/10 text-cinta-azul p-3 rounded-full shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <div>
-            <p class="text-sm uppercase tracking-widest font-bold text-[#8B6F47] mono-font mb-1">Encargado del Proyecto</p>
-            <p class="text-xl font-bold text-[#2E2018]">Johan Mihail Conde Sallo</p>
+            <p class="font-mono text-[13px] text-chonta/60 mb-1">encargado del proyecto</p>
+            <p class="text-xl font-bold text-chonta">Johan Mihail Conde Sallo</p>
           </div>
         </div>
 
-        <div class="flex items-center gap-4 bg-[#E8DCC4]/50 border border-[#8B6F47]/10 p-4 rounded-lg">
-          <div class="bg-[#E8792B] text-white p-3 rounded-full">
+        <div class="flex items-center gap-4 border border-tierra/20 p-4 rounded-2xl">
+          <div class="bg-cinta-azul/10 text-cinta-azul p-3 rounded-full shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
           </div>
           <div>
-            <p class="text-sm uppercase tracking-widest font-bold text-[#8B6F47] mono-font mb-1">Correo Electrónico</p>
-            <a href="mailto:jm.condesallo@gmail.com" class="text-xl font-bold text-[#2E2018] hover:text-[#1B4F8C] transition-colors underline">jm.condesallo@gmail.com</a>
+            <p class="font-mono text-[13px] text-chonta/60 mb-1">correo electrónico</p>
+            <a href="mailto:jm.condesallo@gmail.com" class="text-xl font-bold text-chonta hover:text-cinta-azul transition-colors underline">jm.condesallo@gmail.com</a>
           </div>
         </div>
       </div>
-    </div>
+    </Card>
 
     <!-- Static Form -->
-    <div class="bg-[#2E2018] text-[#E8DCC4] rounded-xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#D4547E] rounded-full blur-3xl opacity-20"></div>
-      <h2 class="text-3xl font-bold font-display mb-8 relative z-10">Envíanos un mensaje rápido</h2>
-      <form class="relative z-10 space-y-6" onsubmit="event.preventDefault(); alert('Esta es una demostración. Por favor, usa el correo jm.condesallo@gmail.com directamente.');">
+    <div class="mt-8 bg-white border border-tierra/20 rounded-2xl p-8 md:p-12 shadow-sm">
+      <h2 class="text-2xl text-chonta mb-8">Envíanos un mensaje rápido</h2>
+      <form class="space-y-6" onsubmit="event.preventDefault(); alert('Esta es una demostración. Por favor, usa el correo jm.condesallo@gmail.com directamente.');">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-2">
-            <label for="name" class="mono-font text-sm uppercase tracking-widest font-bold text-[#8B6F47]">Nombre</label>
-            <input type="text" id="name" class="w-full bg-white/10 border border-[#E8DCC4]/30 rounded-md p-3 text-[#E8DCC4] focus:outline-none focus:border-[#E8792B] transition-colors" placeholder="Tu nombre" />
+            <label for="name" class="font-mono text-[13px] text-chonta/60">nombre</label>
+            <input type="text" id="name" class="w-full bg-white border border-tierra/25 rounded-2xl p-3 text-chonta focus:outline-none focus:border-cinta-azul transition-colors" placeholder="Tu nombre" />
           </div>
           <div class="space-y-2">
-            <label for="email" class="mono-font text-sm uppercase tracking-widest font-bold text-[#8B6F47]">Correo / Teléfono</label>
-            <input type="text" id="email" class="w-full bg-white/10 border border-[#E8DCC4]/30 rounded-md p-3 text-[#E8DCC4] focus:outline-none focus:border-[#E8792B] transition-colors" placeholder="Para contactarte" />
+            <label for="email" class="font-mono text-[13px] text-chonta/60">correo / teléfono</label>
+            <input type="text" id="email" class="w-full bg-white border border-tierra/25 rounded-2xl p-3 text-chonta focus:outline-none focus:border-cinta-azul transition-colors" placeholder="Para contactarte" />
           </div>
         </div>
         <div class="space-y-2">
-          <label for="message" class="mono-font text-sm uppercase tracking-widest font-bold text-[#8B6F47]">Tu Mensaje o Aporte</label>
-          <textarea id="message" rows="4" class="w-full bg-white/10 border border-[#E8DCC4]/30 rounded-md p-3 text-[#E8DCC4] focus:outline-none focus:border-[#E8792B] transition-colors resize-none" placeholder="¿Qué dato o historia conoces?"></textarea>
+          <label for="message" class="font-mono text-[13px] text-chonta/60">tu mensaje o aporte</label>
+          <textarea id="message" rows="4" class="w-full bg-white border border-tierra/25 rounded-2xl p-3 text-chonta focus:outline-none focus:border-cinta-azul transition-colors resize-none" placeholder="¿Qué dato o historia conoces?"></textarea>
         </div>
-        <button type="submit" class="w-full bg-[#E8792B] text-white font-bold py-4 rounded-md uppercase tracking-wider hover:bg-[#D4547E] transition-colors shadow-lg">Enviar Mensaje</button>
+        <button type="submit" class="w-full bg-cinta-azul text-white font-bold py-4 rounded-2xl hover:-translate-y-0.5 transition-transform shadow-sm">Enviar mensaje</button>
       </form>
     </div>
-  </div>
+  </Section>
 </Layout>

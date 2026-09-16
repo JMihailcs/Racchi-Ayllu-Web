@@ -1,0 +1,13 @@
+---
+interface Props {
+  tone?: 'muted' | 'azul' | 'rosa' | 'suri';
+}
+const { tone = 'muted' } = Astro.props;
+const tones = {
+  muted: 'text-chonta/60',
+  azul: 'text-cinta-azul',
+  rosa: 'text-cinta-rosa',
+  suri: 'text-suri',
+};
+---
+<p class:list={['font-mono text-[13px] tracking-wide mb-4', tones[tone]]}><slot /></p>

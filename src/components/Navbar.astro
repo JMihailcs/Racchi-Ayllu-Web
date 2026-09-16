@@ -1,43 +1,23 @@
 ---
-interface Props {
-  theme?: 'default' | 'chunchu';
-}
-const { theme = 'default' } = Astro.props;
-
 const links = [
   { name: 'Inicio', url: '/es/' },
-  { name: 'Festividades', url: '/es/festividades/virgen-asunta' },
-  { name: 'Empresas', url: '#' },
-  { name: 'Mirador', url: '#' },
-  { name: 'Machuqolqa', url: '#' },
+  { name: 'Festividad', url: '/es/festividades/virgen-asunta' },
+  { name: 'Comparsas', url: '/es/festividades/virgen-asunta/comparsas' },
+  { name: 'Cómo se hizo', url: '/es/como-se-hizo' },
   { name: 'Contacto', url: '/es/contacto' }
 ];
-
-let navBgClass = "bg-white/90 backdrop-blur-md border-b border-[#8B6F47]/20 shadow-sm";
-let textColor = "text-[#2E2018]";
-let hoverColor = "hover:text-[#D4547E]";
-let logoColor = "text-[#1B4F8C]";
-let menuBg = "bg-white";
-
-if (theme === 'chunchu') {
-  navBgClass = "bg-white/95 backdrop-blur-md border-b-2 border-[#C91C1C] shadow-sm";
-  textColor = "text-black font-bold";
-  hoverColor = "hover:text-[#C91C1C]";
-  logoColor = "text-[#C91C1C]";
-  menuBg = "bg-white";
-}
 ---
 <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="global-nav">
-  <div class={`absolute inset-0 ${navBgClass} transition-opacity duration-300`} id="nav-bg"></div>
-  <div class="relative max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-    <a href="/es/" class={`text-2xl font-bold font-display ${logoColor} tracking-wide relative z-10`}>Racchi Ayllu</a>
-    
+  <div class="absolute inset-0 bg-white/90 backdrop-blur-md border-b border-tierra/20 transition-opacity duration-300" id="nav-bg"></div>
+  <div class="relative max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/es/" class="text-2xl font-bold font-display text-cinta-azul tracking-wide relative z-10">Racchi Ayllu</a>
+
     <!-- Desktop Menu -->
     <div class="hidden lg:flex items-center gap-8 relative z-10">
       {links.map(link => (
-        <a 
-          href={link.url} 
-          class={`${textColor} font-bold text-sm uppercase tracking-widest ${hoverColor} transition-colors`}
+        <a
+          href={link.url}
+          class="text-chonta font-bold text-sm tracking-wide hover:text-cinta-azul transition-colors"
         >
           {link.name}
         </a>
@@ -45,7 +25,7 @@ if (theme === 'chunchu') {
     </div>
 
     <!-- Mobile Menu Toggle Button -->
-    <button id="mobile-menu-btn" class={`lg:hidden relative z-10 ${textColor} p-2 ${hoverColor} transition-colors`}>
+    <button id="mobile-menu-btn" class="lg:hidden relative z-10 text-chonta p-2 hover:text-cinta-azul transition-colors" aria-label="Abrir menú">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
       </svg>
@@ -54,17 +34,17 @@ if (theme === 'chunchu') {
 </nav>
 
 <!-- Mobile Menu Drawer -->
-<div id="mobile-menu" class={`fixed inset-0 ${menuBg} z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-8 lg:hidden`}>
-  <button id="mobile-menu-close" class={`absolute top-6 right-6 p-4 ${textColor} ${hoverColor} transition-colors`}>
+<div id="mobile-menu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-8 lg:hidden">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 p-4 text-chonta hover:text-cinta-azul transition-colors" aria-label="Cerrar menú">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
-  
+
   {links.map(link => (
-    <a 
-      href={link.url} 
-      class={`mobile-link text-3xl font-bold font-display ${textColor} ${hoverColor} transition-colors`}
+    <a
+      href={link.url}
+      class="mobile-link text-3xl font-bold font-display text-chonta hover:text-cinta-azul transition-colors"
     >
       {link.name}
     </a>

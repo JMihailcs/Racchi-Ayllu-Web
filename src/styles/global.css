@@ -7,18 +7,15 @@
   --color-cinta-rosa: #D4547E;
   --color-naranja: #E8792B;
   --color-tierra: #8B6F47;
-  
-  --font-display: 'Fraunces', serif;
-  --font-sans: 'Public Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
 
-:root {
-  background-color: var(--color-suri);
-  color: var(--color-chonta);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Public Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 body {
+  background-color: #fff;
+  color: var(--color-chonta);
   font-family: var(--font-sans);
 }
 
@@ -33,4 +30,21 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .quechua {
   font-family: var(--font-display);
   font-style: italic;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-cinta-azul) 18%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cinta-azul);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

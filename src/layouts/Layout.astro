@@ -5,15 +5,9 @@ import Navbar from '../components/Navbar.astro';
 interface Props {
   title: string;
   description: string;
-  theme?: 'default' | 'chunchu';
 }
 
-const { title, description, theme = 'default' } = Astro.props;
-
-let bodyClass = "bg-white text-[#2E2018] antialiased";
-if (theme === 'chunchu') {
-  bodyClass = "bg-white text-black antialiased";
-}
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,17 +17,17 @@ if (theme === 'chunchu') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <title>{title}</title>
     <meta name="description" content={description} />
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&family=Public+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   </head>
-  <body class={bodyClass} data-theme={theme}>
-    <Navbar theme={theme} />
+  <body class="bg-white text-chonta antialiased">
+    <Navbar />
     <slot />
   </body>
 </html>

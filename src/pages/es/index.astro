@@ -1,15 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Card from '../../components/Card.astro';
 ---
 <Layout title="Racchi Ayllu — Huayllabamba — Urubamba — Cusco" description="Primer registro público de la fiesta de Racchi Ayllu, comunidad campesina.">
-  
+
   <div class="scroll-wrapper fixed top-0 left-0 w-full min-h-screen will-change-transform z-0">
-    
+
     <!-- CINEMATIC HERO SECTION -->
-    <section class="relative w-full h-[120vh] overflow-hidden flex items-center justify-center bg-[#1B4F8C]" id="hero-cinematic">
+    <section class="relative w-full h-[120vh] overflow-hidden flex items-center justify-center bg-cinta-azul" id="hero-cinematic">
       <!-- Background Sky -->
       <img src="https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png" class="hero-layer layer-sky absolute top-0 left-0 w-full h-full object-cover" alt="" onerror="this.style.display='none'" />
-      
+
       <!-- Back Mountains / Glow -->
       <img src="https://raft-blast-61784561.figma.site/_assets/v11/8a7f8af50e0ce92ec2e228e7b0b4112178c51cf1.png" class="hero-layer layer-back absolute top-0 left-0 w-full h-full object-cover" alt="" onerror="this.style.display='none'" />
 
@@ -23,67 +26,54 @@ import Layout from '../../layouts/Layout.astro';
 
       <!-- Left Split -->
       <img src="https://raft-blast-61784561.figma.site/_assets/v11/7bd7e30dce4dc744b8b60f152b1156fcbc171d99.png" class="hero-layer layer-left absolute top-0 left-0 w-full h-full object-cover z-30 pointer-events-none origin-bottom-left" alt="" onerror="this.style.display='none'" />
-      
+
       <!-- Right Split -->
       <img src="https://raft-blast-61784561.figma.site/_assets/v11/673dbb11f38e6530664d603a1157143973c9ff48.png" class="hero-layer layer-right absolute top-0 left-0 w-full h-full object-cover z-30 pointer-events-none origin-bottom-right" alt="" onerror="this.style.display='none'" />
-      
+
       <!-- Foreground -->
       <img src="https://raft-blast-61784561.figma.site/_assets/v11/1ce8424fa7de09e20037a54a938c4bb1a8f93e2b.png" class="hero-layer layer-fore absolute top-0 left-0 w-full h-full object-cover z-40 pointer-events-none" alt="" onerror="this.style.display='none'" />
     </section>
 
     <!-- MAIN CONTENT BELOW HERO -->
-    <section class="relative z-40 bg-white pt-24 pb-16 border-t border-[#8B6F47]/20 shadow-2xl">
-      <div class="max-w-[68ch] mx-auto px-6 text-center">
-        <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Comunidad Campesina</span>
-        <h2 class="text-4xl md:text-6xl font-display text-[#1B4F8C] mb-8 mt-4">Patrimonio Vivo del Valle Sagrado</h2>
-        <p class="text-xl md:text-2xl text-[#2E2018] leading-relaxed">Racchi Ayllu es una comunidad campesina del distrito de Huayllabamba, provincia de Urubamba. En su jurisdicción, la cultura viva persiste a través del tiempo.</p>
-      </div>
-    </section>
+    <div class="relative z-40 bg-white border-t border-tierra/20 shadow-2xl">
+      <Section>
+        <div class="text-center">
+          <Eyebrow tone="azul">comunidad campesina</Eyebrow>
+          <h2 class="text-4xl md:text-6xl text-cinta-azul mb-8">Patrimonio vivo del Valle Sagrado</h2>
+        </div>
+        <p class="text-xl md:text-2xl leading-relaxed text-center">Racchi Ayllu es una comunidad campesina del distrito de Huayllabamba, provincia de Urubamba. En su jurisdicción, la cultura viva persiste a través del tiempo.</p>
+        <p class="mt-10 text-center font-mono text-[13px] text-chonta/60">Racchi Ayllu — Huayllabamba, Urubamba, Cusco. No confundir con Raqchi de San Pedro, Canchis.</p>
+      </Section>
 
-    <!-- QUICK FACTS SECTION -->
-    <section class="relative z-40 bg-white py-12">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow group">
-            <span class="block mb-4 text-[#D4547E] group-hover:scale-110 transition-transform flex justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-            </span>
-            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Altitud</h4>
-            <p class="text-[#2E2018] mono-font font-bold">~3,652 m.s.n.m.</p>
+      <!-- QUICK FACTS SECTION -->
+      <Section width="wide" alt>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center py-4">
+            <p class="font-display text-3xl md:text-4xl text-chonta mb-2">~3,652 m</p>
+            <p class="font-mono text-[13px] text-chonta/60">altitud</p>
           </div>
-          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow group">
-            <span class="block mb-4 text-[#D4547E] group-hover:scale-110 transition-transform flex justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </span>
-            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Población</h4>
-            <p class="text-[#2E2018] mono-font font-bold">[Pendiente]</p>
+          <div class="text-center py-4">
+            <p class="font-display text-3xl md:text-4xl text-chonta mb-2">21–25 ago</p>
+            <p class="font-mono text-[13px] text-chonta/60">fiesta de la Asunta</p>
           </div>
-          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow group">
-            <span class="block mb-4 text-[#D4547E] group-hover:scale-110 transition-transform flex justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-            </span>
-            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Reconocimiento</h4>
-            <p class="text-[#2E2018] mono-font font-bold">[Pendiente]</p>
+          <div class="text-center py-4">
+            <p class="font-display text-3xl md:text-4xl text-chonta mb-2">6</p>
+            <p class="font-mono text-[13px] text-chonta/60">comparsas</p>
           </div>
-          <div class="text-center p-6 border border-[#1B4F8C]/20 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow group">
-            <span class="block mb-4 text-[#D4547E] group-hover:scale-110 transition-transform flex justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            </span>
-            <h4 class="font-bold text-[#1B4F8C] mb-2 font-display">Ubicación</h4>
-            <p class="text-[#2E2018] mono-font font-bold">Huayllabamba</p>
+          <div class="text-center py-4">
+            <p class="font-display text-3xl md:text-4xl text-chonta mb-2">Huayllabamba</p>
+            <p class="font-mono text-[13px] text-chonta/60">distrito</p>
           </div>
         </div>
-      </div>
-    </section>
+      </Section>
 
-    <!-- SOBRE LA COMUNIDAD -->
-    <section class="relative z-40 bg-white py-24 border-t border-[#8B6F47]/10">
-      <div class="max-w-[68ch] mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Nuestra Historia</span>
-          <h2 class="text-4xl md:text-5xl font-display text-[#1B4F8C] mb-8 mt-4">Corazón de los Andes</h2>
+      <!-- SOBRE LA COMUNIDAD -->
+      <Section>
+        <div class="text-center mb-12">
+          <Eyebrow>nuestra historia</Eyebrow>
+          <h2 class="text-4xl md:text-5xl text-cinta-azul">Corazón de los Andes</h2>
         </div>
-        <div class="text-[#2E2018] text-lg md:text-xl leading-relaxed space-y-6">
+        <div class="text-lg md:text-xl leading-relaxed space-y-6">
           <p>
             Racchi Ayllu es mucho más que un territorio; es una herencia cultural viva. Ubicada en la parte alta del Valle Sagrado, nuestra comunidad ha mantenido sus tradiciones desde tiempos inmemoriales, sosteniendo una economía basada en la agricultura y la ganadería.
           </p>
@@ -91,56 +81,48 @@ import Layout from '../../layouts/Layout.astro';
             Hoy en día, somos un punto emergente e importante para el <strong>turismo vivencial</strong>. Aquí, compartimos nuestra textilería andina ancestral y el cuidado de nuestras alpacas y llamas, abriendo nuestras puertas para que el mundo experimente el verdadero respeto por la Pachamama.
           </p>
         </div>
-      </div>
-    </section>
+      </Section>
 
-    <!-- FESTIVIDADES Y CULTURA -->
-    <section class="relative z-40 bg-white py-24 border-t border-[#8B6F47]/10">
-      <div class="max-w-[68ch] mx-auto px-6 mb-16 text-center">
-        <span class="mono-font text-sm uppercase tracking-widest text-[#E8792B] font-bold">Expresiones Culturales</span>
-        <h2 class="text-4xl md:text-5xl font-display text-[#1B4F8C] mb-8 mt-4">Nuestras Festividades</h2>
-      </div>
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <a href="/es/festividades/virgen-asunta" class="block p-10 border border-[#1B4F8C]/20 bg-white/40 hover:bg-[#1B4F8C] hover:text-[#E8DCC4] transition-all rounded-lg group shadow-sm hover:shadow-xl hover:-translate-y-1">
-            <h3 class="text-3xl font-bold mb-4 font-display">La Virgen Asunta</h3>
-            <p class="opacity-80 group-hover:opacity-100 transition-opacity text-lg">Una festividad única del 21 al 25 de agosto, a diferencia del resto del Valle Sagrado.</p>
-            <div class="mt-6 font-bold mono-font text-sm uppercase flex items-center gap-2 group-hover:text-[#E8792B]">
-              Explorar <span class="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </a>
-          <a href="/es/festividades/virgen-asunta/comparsas/qapaq-chunchu" class="block p-10 border border-[#E8792B]/20 bg-white/40 hover:bg-[#E8792B] hover:text-white transition-all rounded-lg group shadow-sm hover:shadow-xl hover:-translate-y-1">
-            <h3 class="text-3xl font-bold mb-4 font-display">Qapaq Chunchu</h3>
-            <p class="opacity-80 group-hover:opacity-100 transition-opacity text-lg">Danza de los guerreros amazónicos. Evolución contemporánea del antiguo Iriji Chunchu.</p>
-            <div class="mt-6 font-bold mono-font text-sm uppercase flex items-center gap-2 group-hover:text-[#2E2018]">
-              Leer Ficha <span class="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </a>
+      <!-- FESTIVIDADES Y CULTURA -->
+      <Section width="wide" alt>
+        <div class="max-w-[68ch] mx-auto mb-12 text-center">
+          <Eyebrow>expresiones culturales</Eyebrow>
+          <h2 class="text-4xl md:text-5xl text-cinta-azul">Nuestras festividades</h2>
         </div>
-      </div>
-    </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Card href="/es/festividades/virgen-asunta">
+            <h3 class="text-2xl md:text-3xl text-chonta mb-3">La Virgen Asunta</h3>
+            <p class="text-lg text-chonta/80">Una festividad única del 21 al 25 de agosto, a diferencia del resto del Valle Sagrado.</p>
+            <p class="mt-6 font-mono text-[13px] text-cinta-azul">explorar →</p>
+          </Card>
+          <Card href="/es/festividades/virgen-asunta/comparsas/qapaq-chunchu">
+            <h3 class="text-2xl md:text-3xl text-chonta mb-3">Qapaq Chunchu</h3>
+            <p class="text-lg text-chonta/80">Danza de los guerreros amazónicos. Evolución contemporánea del antiguo Iriji Chunchu.</p>
+            <p class="mt-6 font-mono text-[13px] text-cinta-azul">leer ficha →</p>
+          </Card>
+        </div>
+      </Section>
 
-    <!-- MAPA -->
-    <section class="relative z-40 bg-white py-24 border-t border-[#8B6F47]/10">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="mono-font text-sm uppercase tracking-widest text-[#D4547E] font-bold">Encuéntranos</span>
-          <h2 class="text-4xl md:text-5xl font-display text-[#1B4F8C] mt-4">Nuestra Ubicación</h2>
+      <!-- MAPA -->
+      <Section width="wide">
+        <div class="text-center mb-12">
+          <Eyebrow>encuéntranos</Eyebrow>
+          <h2 class="text-4xl md:text-5xl text-cinta-azul">Nuestra ubicación</h2>
         </div>
-        <div class="w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-[#1B4F8C]/20 bg-[#E8DCC4] flex items-center justify-center">
-          <iframe 
-            src="https://maps.google.com/maps?q=Centro+Comunal+de+Racchy+Ayllo&hl=es&z=16&output=embed" 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
+        <div class="w-full h-[500px] rounded-2xl overflow-hidden border border-tierra/20 bg-suri/40">
+          <iframe
+            src="https://maps.google.com/maps?q=Centro+Comunal+de+Racchy+Ayllo&hl=es&z=16&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
-        <p class="text-center mt-6 text-[#2E2018] opacity-70 text-sm">*Nota: En Google Maps el registro aparece escrito como "Racchy Ayllo", pero la ubicación del Centro Comunal es la correcta.</p>
-      </div>
-    </section>
+        <p class="text-center mt-6 text-chonta/60 font-mono text-[13px]">En Google Maps figura como “Racchy Ayllo”; la ubicación del Centro Comunal es la correcta.</p>
+      </Section>
+    </div>
   </div>
 </Layout>
 
@@ -148,7 +130,7 @@ import Layout from '../../layouts/Layout.astro';
   :root {
     --scroll-progress: 0;
   }
-  
+
   .layer-sky {
     transform: scale(calc(1 + var(--scroll-progress) * 0.1)) translateY(calc(var(--scroll-progress) * 15%));
   }
